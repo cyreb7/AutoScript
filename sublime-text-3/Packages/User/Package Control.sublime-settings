@@ -14,4 +14,11 @@
 		"SublimeLinter-contrib-php-cs-fixer",
 		"SublimeLinter-eslint"
 	],
+	"paths":
+	{
+		"windows":
+		[
+			"C:\\Users\\cyreb\\AppData\\Roaming\\Composer\\vendor\\bin\\php-cs-fixer"
+		]
+	}
 }
