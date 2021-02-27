@@ -1,0 +1,11 @@
+{
+	"font_face": "JetBrains Mono",
+	"git_binary": "system",
+	"theme": "auto",
+	"side_bar_layout": "tabs",
+	"translate_tabs_to_spaces": true,
+	"hide_menu": true,
+	"hardware_acceleration": "opengl",
+	"ignore_diff_white_space": false,
+	"expand_merge_commits_by_default": false,
+}

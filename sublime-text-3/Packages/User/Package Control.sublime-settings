@@ -1,0 +1,17 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Delete Current File",
+		"Jinja2",
+		"JsPrettier",
+		"Package Control",
+		"Sass",
+		"SublimeLinter",
+		"SublimeLinter-contrib-php-cs-fixer",
+		"SublimeLinter-eslint"
+	],
+}

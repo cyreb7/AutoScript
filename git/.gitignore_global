@@ -1,0 +1,5 @@
+# https://docs.github.com/en/free-pro-team@latest/github/using-git/ignoring-files
+# $ git config --global core.excludesfile ~/AutoScript/.gitignore_global
+
+*.sublime-workspace
+*.sublime-project
