@@ -80,3 +80,8 @@ alias ngrok="~/ngrok http 80"
 
 # Path additions
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+# Environment variables
+# https://github.com/puppeteer/puppeteer/blob/v8.0.0/docs/api.md#environment-variables
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
