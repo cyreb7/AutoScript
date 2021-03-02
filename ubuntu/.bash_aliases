@@ -79,4 +79,4 @@ alias gitrefresh="
 alias ngrok="~/ngrok http 80"
 
 # Path additions
-# export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
