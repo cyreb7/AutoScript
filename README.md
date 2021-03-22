@@ -8,6 +8,7 @@ It's recommended that wherever possible you create symlinks to the files in this
 * [JetBrains Mono](https://www.jetbrains.com/lp/mono/) - my preferred development font
 * [DevDocs](https://devdocs.io/) - searchable and offline documentation for most programming languages and frameworks
 * [CodeCopy](https://github.com/zenorocha/codecopy) - adds a "copy" button to code snippets in the browser
+* [Clockwork](https://underground.works/clockwork/) - debug what SQL Laravel is running for each request in dev tools
 * [My Keyboard Layout](https://configure.ergodox-ez.com/ergodox-ez/layouts/40KqM/latest/0) - programmable keyboards are awesome
 
 ## Contributing
