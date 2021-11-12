@@ -1,87 +1,69 @@
 # Symlink this to your home folder, then you can run any of these aliases in your terminal.
-# alias commandYouTypeInTheTerminal="terminal commands run"
 
 # Tool quick start
-alias api="
+api() {
   cd /var/www/html/api;
   composer install;
   php artisan migrate;
   composer freshtest;
   composer integrationtest;
   php artisan queue:flush;
-  php artisan queue:listen;"
-alias ram="
+  php artisan queue:listen;
+}
+ram() {
   cd /var/www/html/ram;
   npm ci;
-  npm run notestgulp;"
-alias report="
+  npm run notestgulp;
+}
+report() {
   cd /var/www/html/report;
   npm ci;
-  npm run notestgulp;"
-alias 2nform="
+  npm run notestgulp;
+}
+2nform() {
   cd /var/www/html/2nform;
   npm ci;
-  npm run gulp;"
-alias swtelrcli="
-  cd /var/www/html/swtelr-cli;
-  composer install;"
-alias dbfunctions="
-  cd /var/www/html/db_functions;
-  source ~/.virtualenv/bin/activate;
-  pip install -r requirements.txt;
-  pytest"
+  npm run gulp;
+}
+dbfunctions() {
+  cd /var/www/python/db_functions;
+  virtualenv;
+  pip3 install -r requirements.txt;
+  pytest;
+}
+agol() {
+  cd /var/www/python/agol-scripts;
+  virtualenv;
+  pip3 install -r requirements.txt;
+  pytest;
+}
 
-# Do something to all repos
-alias buildall="
-  cd /var/www/html/ram; npm run gulp build &
-  cd /var/www/html/report; npm run gulp build &
-  cd /var/www/html/2nform; npm run gulp build &
-  cd /var/www/html"
-alias gitrefresh="
-  cd /var/www/html/api;
-  git checkout develop;
-  git pull;
-  git fetch --prune;
-  git branch --merged develop | grep -v '^[ *]*develop$' | xargs git branch -d;
+# Python
+virtualenv() {
+  mkdir .virtualenv -p;
+  python3 -m venv ./.virtualenv;
+  . ./.virtualenv/bin/activate;
+}
 
-  cd /var/www/html/ram;
-  git checkout develop;
-  git pull;
-  git fetch --prune;
-  git branch --merged develop | grep -v '^[ *]*develop$' | xargs git branch -d;
-
-  cd /var/www/html/report;
-  git checkout develop;
-  git pull;
-  git fetch --prune;
-  git branch --merged develop | grep -v '^[ *]*develop$' | xargs git branch -d;
-
-  cd /var/www/html/2nform;
-  git checkout develop;
-  git pull;
-  git fetch --prune;
-  git branch --merged develop | grep -v '^[ *]*develop$' | xargs git branch -d;
-
-  cd /var/www/html/swtelr-cli;
-  git checkout develop;
-  git pull;
-  git fetch --prune;
-  git branch --merged develop | grep -v '^[ *]*develop$' | xargs git branch -d;
-
-  cd /var/www/html/db_functions;
-  git checkout develop;
-  git pull;
-  git fetch --prune;
-  git branch --merged develop | grep -v '^[ *]*develop$' | xargs git branch -d;
-"
-
-# Other helpers
-alias ngrok="~/ngrok http 80"
+# Docker, each command takes the ECR repository name as a parameter,
+# so an example build might be `dockerbuild jenkins-manager`
+dockerbuild() {
+  sudo docker build --no-cache --force-rm --pull -t $1:latest .;
+  sudo docker system prune --volumes --force;
+}
+dockerdeploy() {
+  aws ecr get-login-password | sudo docker login --username AWS --password-stdin 269231215335.dkr.ecr.us-west-1.amazonaws.com;
+  sudo docker tag $1 269231215335.dkr.ecr.us-west-1.amazonaws.com/$1;
+  sudo docker push 269231215335.dkr.ecr.us-west-1.amazonaws.com/$1;
+}
+dockerrestart() {
+  aws ecs update-service --cluster jenkins-cluster --service $1 --force-new-deployment --no-cli-pager;
+  xdg-open https://us-west-1.console.aws.amazon.com/ecs/v2/clusters/jenkins-cluster/tasks?region=us-west-1 &
+}
 
 # Path additions
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 # Environment variables
 # https://github.com/puppeteer/puppeteer/blob/v8.0.0/docs/api.md#environment-variables
-PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true

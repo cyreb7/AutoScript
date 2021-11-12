@@ -5,13 +5,17 @@
 	],
 	"installed_packages":
 	[
+		"Case Conversion",
+		"ColorHints",
 		"Delete Current File",
-		"Jinja2",
 		"JsPrettier",
+		"Nunjucks",
 		"Package Control",
+		"PHP CS Fixer",
 		"Sass",
 		"SublimeLinter",
-		"SublimeLinter-contrib-php-cs-fixer",
-		"SublimeLinter-eslint"
+		"SublimeLinter-eslint",
+		"SublimeLinter-php",
+		"WordHighlight",
 	],
 }

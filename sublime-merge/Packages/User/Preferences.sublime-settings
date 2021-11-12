@@ -5,7 +5,8 @@
 	"side_bar_layout": "tabs",
 	"translate_tabs_to_spaces": true,
 	"hide_menu": true,
-	"hardware_acceleration": "opengl",
 	"ignore_diff_white_space": false,
-	"expand_merge_commits_by_default": false,
+	"expand_merge_commits_by_default": true,
+	"auto_diff_style_min_chars": 65,
+	"always_show_command_status": false,
 }
